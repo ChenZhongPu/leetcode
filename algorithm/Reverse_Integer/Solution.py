@@ -5,21 +5,20 @@ class Solution(object):
         :rtype: int
         """
         isNegative = False
-        MAX_INT = 2147483647
-        MIN_INT = -2147483648
+        magic = 214748364
         y = 0
         if x < 0:
-        	if x == MIN_INT:
+        	if x == -2147483648:
         		return 0
         	isNegative = True
         	x = -x
         while x != 0:
         	n = x % 10
         	if isNegative:
-        		if -y < (MIN_INT + n) / 10:
+        		if -y < - magic:
         			return 0
         	else:
-        		if y > (MAX_INT - n) / 10:
+        		if y > magic:
         			return 0
         	y = y * 10 + n
         	x = x // 10
